@@ -1,6 +1,6 @@
 d: DF 1.0
 fld f2,d(x0);value to store 1.0 always
-addi x2,x0,7 ; this register holds my value of n
+addi x2,x0,20 ; this register holds my value of n
 add x15,x2,x0 ; THIS REGISTER WILL STOP MY PROGRAM AND SHOULD BE SET TO WHATEVER x2 Begins at
 add x8,x2,x0 ;this is my counter of n resigster
 add x11,x2,x0; i need anotnher counter of n for my method
