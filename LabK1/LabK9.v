@@ -15,6 +15,7 @@ assign z = xOR2;
 or(cOUT, and2, and1);
 
 
+//QUESTION 50-51
 initial
 begin
     for(i = 0; i < 3; i = i + 1)
