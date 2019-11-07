@@ -16,7 +16,7 @@ initial
 begin
      flag = $value$plusargs("a=%b", a);
      if (flag == 0)
-        $display("There was no value specified for A", $time);
+     $display("There was no value specified for A", $time);
      flag = $value$plusargs("b=%b", b);
      flag = $value$plusargs("c=%b", c);
      #1;
