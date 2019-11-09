@@ -38,7 +38,7 @@ begin
 		#1;
 		if(c === 1 && z === b)
 		$display("PASS a=%b b=%b c=%b z=%b", a, b, c, z);
-		if(c === 0 && z === a) 
+		else if(c === 0 && z === a) 
 		$display("PASS a=%b b=%b c=%b z=%b", a, b, c, z);
 		else
 		$display("FAIL! a=%b b=%b c=%b z=%b", a, b, c, z );
