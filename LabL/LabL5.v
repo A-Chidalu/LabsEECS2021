@@ -2,8 +2,9 @@ module LabL5;
 reg a, b, cin;
 wire z, cout;
 integer i, j, k;
+reg[1: 0] summer;
 
-yAdder1 M(z, cout , a, b, cIN);
+yAdder1 adder(z, cout, a, b, cin);
 
 initial 
 begin
@@ -11,11 +12,16 @@ begin
         begin
             for(j = 0; j < 2; j = j + 1)
                 begin
-                    for(k = 0; k < 2; k  k + 1)
+                    for(k = 0; k < 2; k = k + 1)
                         begin
-                            a = i; b = j; c = k;
+                            a = i; b = j; cin = k;
+                            summer = a + b + cin;
                             #1;
+                            if(summer[1] != cout)
                             $display("a=%b b=%b cin=%b z=%b", a, b, cin, z);
+                            if(summer[0] != cout)
+                            $display("a=%b b=%b cin=%b z=%b", a, b, cin, z);
+                            
                         end
                 end
         end
