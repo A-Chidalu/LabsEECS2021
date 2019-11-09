@@ -1,4 +1,4 @@
-module yMux1(z,a,b,c);
+module yMux1(z, a, b, c);
 output z;
 input a, b, c;
 wire notC, upper, lower;
