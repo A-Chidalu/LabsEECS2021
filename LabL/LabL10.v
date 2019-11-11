@@ -1,6 +1,7 @@
 module labL;
 reg signed [31:0] a, b;
 reg [31:0] expect;
+reg[31:0] ZERO, temp;
 reg [2:0] op;
 wire ex;
 wire [31:0] z;
@@ -15,16 +16,22 @@ begin
     begin
         a = $random;
         b = $random;
-        op = 0;
+        op = 3'b111;
         ok = 0;
         if(op === 0) 
-        expect = a & b;
+            expect = a & b;
         else if(op === 1)
-        expect = a | b;
+            expect = a | b;
         else if(op === 2)
-        expect = a + b;
+            expect = a + b;
+        else if (op == 3'b111)
+        begin
+        expect = (a < b) ? 1 : 0;
+        assign 
+        //z[31:1] = ZERO[31:1];
+        end
         else if(op === 6)
-        expect = a + (~b) + 1;
+            expect = a + (~b) + 1;
         else 
         $display("Lol wut. How did we even end up here");
         #1;
