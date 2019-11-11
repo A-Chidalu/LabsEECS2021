@@ -18,9 +18,9 @@ begin
                             summer = a + b + cin;
                             #1;
                             if(summer[1] != cout)
-                            $display("a=%b b=%b cin=%b z=%b", a, b, cin, z);
+                            $display("a=%b b=%b cin=%b z=%b cout=%b", a, b, cin, z, cout);
                             if(summer[0] != cout)
-                            $display("a=%b b=%b cin=%b z=%b", a, b, cin, z);
+                              $display("a=%b b=%b cin=%b z=%b cout=%b", a, b, cin, z, cout);
                             
                         end
                 end
