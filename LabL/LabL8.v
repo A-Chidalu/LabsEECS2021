@@ -1,11 +1,11 @@
-module LabL8;
+module LabL;
 
-reg[31: 0] a, b expect;
-wire[31: 0] z;
+reg signed[31: 0] a, b, expect;
+wire signed[31: 0] z;
 wire cout;
 reg ctrl, cin;
 
-yArith test[31:0](z, cout, a, b, ctrl);
+yArith test(z, cout, a, b, ctrl);
 
 initial
 begin
@@ -16,7 +16,7 @@ repeat(10)
         ctrl = $random % 2;
         #1;
         if(ctrl === 1) 
-        expect = a - b + 1;
+        expect = a + (~b) + 1;
         else
         expect = a + b;
 
@@ -25,7 +25,7 @@ repeat(10)
         else if(z === expect && ctrl === 0) 
         $display("PASS: a=%b b=%b ctrl=%b z=%b expect=%b", a, b, ctrl, z, expect);
         else
-        $display("FAIL");
+        $display("FAIL: a=%b b=%b ctrl=%b z=%b expect=%b", a, b, ctrl, z, expect);
     end
 $finish;
 end

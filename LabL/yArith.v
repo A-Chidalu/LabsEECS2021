@@ -9,15 +9,11 @@ wire cin;
 // instantiate the components and connect them
 // Hint: about 4 lines of code
 
-not(notB, b);
+assign cin = ctrl;
+not myNot[31:0](notB, b);
+yMux #(32) mymux(tmp, b, notB, cin);
+yAdder myadder(z, cout, a ,tmp , cin);
 
-if(ctrl === 1)
 
-assign cin = 1;
-
-else
-assign cin = 0;
-
-yAdder test[31:0] (z, cout, a, b, cin);
 
 endmodule
