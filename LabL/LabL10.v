@@ -11,7 +11,7 @@ integer i;
 yAlu mine(z, ex, a, b, op);
 
 initial
-begin
+begins
     for(i = 0; i < 10; i = i + 1)
     begin
         a = $random;
@@ -25,16 +25,14 @@ begin
         else if(op === 2)
             expect = a + b;
         else if (op == 3'b111)
-        begin
-        expect = (a < b) ? 1 : 0;
-        assign 
-        //z[31:1] = ZERO[31:1];
-        end
+            begin
+            expect = (a < b) ? 1 : 0;
+            end
         else if(op === 6)
             expect = a + (~b) + 1;
         else 
-        $display("Lol wut. How did we even end up here");
-        #1;
+            $display("Lol wut. How did we even end up here");
+            #1;
 
         // Compare the circuit's output with "expect"
         if(expect === z)
