@@ -1,17 +1,17 @@
 module labL;
 reg signed [31:0] a, b;
 reg [31:0] expect;
-reg[31:0] ZERO, temp;
+reg[31:0] ZERO;
 reg [2:0] op;
 wire ex;
-wire [31:0] z;
+wire [31:0] z, temp;
 reg ok, flag;
 integer i;
 
 yAlu mine(z, ex, a, b, op);
 
 initial
-begins
+begin
     for(i = 0; i < 10; i = i + 1)
     begin
         a = $random;
@@ -25,9 +25,7 @@ begins
         else if(op === 2)
             expect = a + b;
         else if (op == 3'b111)
-            begin
             expect = (a < b) ? 1 : 0;
-            end
         else if(op === 6)
             expect = a + (~b) + 1;
         else 
