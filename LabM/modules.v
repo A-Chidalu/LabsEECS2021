@@ -143,4 +143,3 @@ not (notC, c);
 xor (lower, a, b, notC, d);
 
 endmodule
-
