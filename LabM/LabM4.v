@@ -23,7 +23,7 @@ reg [31 : 0] address, memIn;
 reg clk, memRead, memWrite;
 wire [31: 0] memOut;
 
-mem data(memOut, address, memIn, clk, memRead, memWrite);
+mem data(memOut, address, memIn, clk, memRead, memWrite); //MAKE SURE THESE NAMES MATCH YOUR REGISTER NAMES
 
 initial 
 begin
