@@ -17,17 +17,30 @@ repeat (11)
 begin
 //---------------------------------Fetch an ins
 clk = 1; #1;
-//---------------------------------Set control signals RegWrite = 0; ALUSrc = 1; op = 3'b010;
+//---------------------------------Set control signals 
+RegWrite = 0; ALUSrc = 1; op = 3'b010;
 // Add statements to adjust the above defaults
+if (ins[6:0] == 7'h33) // R-Type
+begin
+  RegWrite = 1; ALUSrc = 0;
+end
+ if (ins[6:0] == 7'h3 || ins[6:0] == 7'h13) //I type
+ begin
+   RegWrite = 1; ALUSrc = 1;
+ end
+if(ins[6:0] == 7'h6F) // UJ Type 
+begin
+  RegWrite = 1; ALUSrc = 1;
+end
 //---------------------------------Execute the ins
 clk = 0; #1;
 //---------------------------------View results
 #1;
 #4 $display("ins=%h rd1=%h rd2=%h imm=%h jTarget=%h z=%h zero=%h", ins, rd1, rd2, imm, jTarget, z, zero);
 #1;
-end
 //---------------------------------Prepare for the next ins PCin = PCp4;
 PCin = PCp4;
+end
 #1;
 $finish;
 end

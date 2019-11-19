@@ -189,3 +189,12 @@ yMux #(32) my_mux(b, rd2, imm, ALUSrc);
 yAlu #(32) myAlu2(z, zero, b, rd1, op);
 
 endmodule
+//-----------------------------------------yDM--------------------------------------------------------------
+module yDM(memOut, exeOut, rd2, clk, MemRead, MemWrite); 
+output [31:0] memOut;
+input [31:0] exeOut, rd2, z; 
+input clk, MemRead, MemWrite;
+
+mem my_mem(memOut,z, rd2, clk, MemRead, MemWrite);
+
+endmodule
