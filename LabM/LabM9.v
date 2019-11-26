@@ -4,14 +4,12 @@ reg RegWrite, clk, ALUSrc;
 reg [2:0] op;
 wire [31:0] wd, rd1, rd2, imm, ins, PCp4, z, jTarget, branch; 
 wire zero;
-yIF myIF(ins, PCp4, PCin, clk);
-yID myID(rd1, rd2, imm, jTarget, branch, ins, wd, RegWrite, clk);
-yEX myEx(z, zero, rd1, rd2, imm, op, ALUSrc);
 assign wd = z;
 yIF myIF(ins, PCp4, PCin, clk);
 yID myID(rd1, rd2, imm, jTarget, branch, ins, wd, RegWrite, clk);
 yEX myEx(z, zero, rd1, rd2, imm, op, ALUSrc);
-yDM myDM(memOut, z, rd2, clk, MemRead, MemWrite); yWB myWB(wb, z, memOut, Mem2Reg);
+yDM myDM(memOut, z, rd2, clk, MemRead, MemWrite); 
+yWB myWB(wb, z, memOut, Mem2Reg);
 assign wd = wb;
 
 
